@@ -24,36 +24,48 @@
 
    After initialization, you will find two folders called `contracts` and `migrations`. Contracts go in the `contracts` folder while contract deployment settings go in `migrations`.
 
-2. The "ExampleContract" contract
+2. The "library" contract
 
-   This is an example of a "ExampleContract" contract in Solidity. 
-   "example.sol" in `contracts` contains the following code:
+   This is an example of a "library" contract in Solidity. 
+   "library.sol" in `contracts` contains the following code:
 
    ```solidity
    // SPDX-License-Identifier: MIT
    pragma solidity ^0.8.17;
+   
+   contract Library {
+       struct Book {
+           string title;
+           bool isBorrowed;
+       }
 
-   // Contract successfully uses require()
-   // Contract successfully uses assert()
-   // Contract successfully uses revert() statements
-
-   contract ExampleContract {
-      uint public number;
-      
-      function setNumber(uint _number) public {
-         require(_number > 0, "Number must be greater than zero");
-         number = _number;
-      }
-      function getNumber() public view returns (uint) {
-         assert(number != 0);
-         return number;
-      }
-      function resetNumber() public {
-         if (number == 0) {
-               revert("Number is already zero");
-         }
-         number = 0;
-      }
+       mapping(uint => Book) public books;
+   
+       function addBook(uint _bookId, string memory _title) public {
+           require(bytes(_title).length > 0, "Book title cannot be empty");
+           require(!books[_bookId].isBorrowed, "Book already exists");
+           
+           books[_bookId] = Book({
+               title: _title,
+               isBorrowed: false
+           });
+       }
+   
+       function borrowBook(uint _bookId) public {
+           require(!books[_bookId].isBorrowed, "Book is already borrowed");
+           assert(bytes(books[_bookId].title).length > 0);
+   
+           books[_bookId].isBorrowed = true;
+       }
+   
+       function returnBook(uint _bookId) public {
+           if (bytes(books[_bookId].title).length == 0) {
+               revert("Book does not exist");
+           }
+           require(books[_bookId].isBorrowed, "Book is not borrowed");
+   
+           books[_bookId].isBorrowed = false;
+       }
    }
    ```
 
@@ -62,9 +74,9 @@
    "2_deploy_migration.js" in `migrations` contains the following code:
 
    ```javascript
-   const ExampleContract = artifacts.require("ExampleContract");
+   const Library = artifacts.require("Library");
    module.exports = function (deployer) {
-   deployer.deploy(ExampleContract);
+     deployer.deploy(Library);
    };
    ```
 
@@ -87,34 +99,32 @@
    *Get the Deployed Contract Instance*
 
    ```javascript
-   const example = await ExampleContract.deployed();
+   const library = await Library.deployed()
    ```
 
-   This command retrieves the deployed instance of `ExampleContract`.
+   This command retrieves the deployed instance of `library`.
 
-   *Set 'number' to a Non-zero Value (e.g., 10)*
+   *add a book to the library*
 
    ```javascript
-   await example.setNumber(10);
+   await library.addBook(1, "book1");
    ```
 
-   This command sets the `number` to 10, using the first account from the list of available accounts.
+   This command adds a book with ID 1 and title "book1" to the library.
 
-   *Check theValue number*
+   *Borrow the book*
 
    ```javascript
-   let number = await example.getNumber();
-   console.log("number: ", number.toString());
+   await library.borrowBook(1);
    ```
 
-   This command retrieves the initial value of `number` and prints it. Since the contract uses `assert` to check if the `number` is not zero in `getNumber()`, it 
-   might revert if the initial value is zero. Instead, directly accessing the state variable may be required to check the initial value.
+   This command borrows the book with ID 1.
 
 
-   *Reset 'number' to 0*
+   *Return the book*
 
    ```javascript
-   await example.resetNumber();
+   await library.returnBook(1)
    ```
    
-   By executing each step individually in the Truffle console, you can interactively verify the behavior of your `ExampleContract`.
+   This command returns the book with ID 1.
