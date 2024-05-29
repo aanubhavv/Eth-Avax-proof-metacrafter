@@ -2,6 +2,12 @@
 
 After cloning the github, you will want to do the following to get the code running on your computer.
 
+## Description
+
+this contract depicts an decentralized exchange where you can deposit/withdraw your tokens and also stake them for earning rewards. 
+
+**Executing program**
+
 1. Inside the project directory, in the terminal type: npm i
 2. Open two additional terminals in your VS code
 3. In the second terminal type: npx hardhat node
