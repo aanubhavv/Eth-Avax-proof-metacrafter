@@ -6,7 +6,7 @@ After cloning the github, you will want to do the following to get the code runn
 
 this contract depicts an decentralized exchange where you can deposit/withdraw your tokens and also stake them for earning rewards. 
 
-**Executing program**
+##Executing program
 
 1. Inside the project directory, in the terminal type: npm i
 2. Open two additional terminals in your VS code
