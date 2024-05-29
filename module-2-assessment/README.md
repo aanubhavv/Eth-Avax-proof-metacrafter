@@ -1,4 +1,4 @@
-# Starter Next/Hardhat Project
+# showcase of frontend integration
 
 After cloning the github, you will want to do the following to get the code running on your computer.
 
