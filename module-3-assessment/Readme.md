@@ -14,7 +14,7 @@ MyToken is a customizable ERC20 token implemented using OpenZeppelin's ERC20 and
 
 #### How/where to download your program
 
-You can download the project source code from the GitHub repository: [module-3 GitHub Repository](https://github.com/aanubhavv/Eth-Avax-proof-metacrafter/new/main/module-3-assessment).
+You can download the project source code from the GitHub repository: [module-3 GitHub Repository](https://github.com/aanubhavv/Eth-Avax-proof-metacrafter/blob/main/module-3-assessment/withLibrary.sol).
 
 #### Any modifications needed to be made to files/folders
 
