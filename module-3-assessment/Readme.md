@@ -34,7 +34,7 @@ No specific modifications are needed. Ensure you have the correct versions of th
 
 3. **Copy and paste the contract code:**
 
-    Copy the following code into the `MyToken.sol` file:
+    Copy the following code into the `withLibrary.sol` file:
 
     ```solidity
     // SPDX-License-Identifier: MIT
