@@ -111,7 +111,7 @@ export default function HomePage() {
 
   return (
     <main className="container">
-      <header><h1>Welcome to the Anubhav's ATM!</h1></header>
+      <header><h1>Welcome to the Anubhav's DEX!</h1></header>
       {account ? (
         <div>
           <p>Your Account: {account}</p>
