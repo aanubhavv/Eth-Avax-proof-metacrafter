@@ -85,6 +85,12 @@ No specific modifications are needed. Ensure you have the correct versions of th
         2. Find the `mint` function.
         3. Enter the recipient address and the amount of tokens to mint.
         4. Click "transact".
+           
+    - **Transfer tokens:**
+        1. Expand the deployed contract.
+        2. Find the `transferTokens` function.
+        3. Enter the recipient address and the amount of tokens to transfer.
+        4. Click "transact".
 
     - **Burn tokens:**
         1. Find the `burn` function.
