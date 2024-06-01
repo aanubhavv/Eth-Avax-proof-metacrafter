@@ -13,7 +13,7 @@ Creating and deplying DegenToken on the Avax C-chain for Degen Gaming.
 
   1. Clone the [repository](https://github.com/aanubhavv/Eth-Avax-proof-metacrafter) using `git clone https://github.com/aanubhavv/Eth-Avax-proof-metacrafter`
   2. Move to the project directory using `cd module-4-assessment`
-  3. Get your Wallet's private key with some AVAX faucet tokens on Fuji c-chain from [fuji faucet](https://core.app/tools/testnet-faucet/)
+  3. Copy your Wallet's private key that contains [AVAX faucet tokens](https://core.app/tools/testnet-faucet/)
   4. Enter the key in `hardhat.config.js`
 
 ### Executing program
