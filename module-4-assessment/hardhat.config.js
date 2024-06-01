@@ -7,5 +7,9 @@ module.exports = {
       url: "https://api.avax-test.network/ext/bc/C/rpc",
       accounts: [`0x${YOUR_PRIVATE_KEY}`] //your private key inside
     }
+  },
+  etherscan: {
+    // Your API key for Snowtrace
+    apiKey: "YOUR_SNOWTRACE_API_KEY"
   }
 };
