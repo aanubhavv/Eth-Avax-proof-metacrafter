@@ -5,7 +5,7 @@ module.exports = {
   networks: {
     fuji: {
       url: "https://api.avax-test.network/ext/bc/C/rpc",
-      accounts: [] //your private key inside
+      accounts: [`0x${YOUR_PRIVATE_KEY}`] //your private key inside
     }
   }
 };
