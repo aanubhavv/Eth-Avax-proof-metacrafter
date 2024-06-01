@@ -2,6 +2,11 @@
 
 Creating and deplying DegenToken on the Avax C-chain for Degen Gaming.
 
+## The conract was verified on the Avalanche testnet
+![image](https://github.com/aanubhavv/Eth-Avax-proof-metacrafter/assets/117589083/f8f08af3-ccd0-4643-967b-f400d2254536)
+
+[link to verification](https://testnet.snowtrace.io/address/0x1cA2C24Ff05E811e65c650308C29385607124e9E#code)
+
 ## Getting Started
 
 ### Installing
@@ -19,6 +24,9 @@ Creating and deplying DegenToken on the Avax C-chain for Degen Gaming.
 Congratulations! you have successfully deployed the contract. Now use the contract address returned after deploying to check it on the [avalanche testnet block chain](https://testnet.snowtrace.io/).
 
 Further functions provided can be tested on [Remix IDE](https://remix.ethereum.org/)
+
+
+
 
 
 
