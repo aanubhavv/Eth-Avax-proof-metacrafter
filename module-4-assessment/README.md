@@ -18,8 +18,9 @@ Creating and deplying DegenToken on the Avax C-chain for Degen Gaming.
 
 ### Executing program
 
-  1. intall required dependencies using `npm i`
-  2. deploy on fuji chain (testnet for c-chain) using `npx hardhat run scripts/deploy.js --network fuji`
+  1. Intall required dependencies using `npm i`
+  2. Deploy on fuji chain (testnet for c-chain) using `npx hardhat run scripts/deploy.js --network fuji`
+  3. Verify on snowtrace using `npx hardhat verify --network fuji YOUR_CONTRACT_ADDRESS`
 
 Congratulations! you have successfully deployed the contract. Now use the contract address returned after deploying to check it on the [avalanche testnet block chain](https://testnet.snowtrace.io/).
 
