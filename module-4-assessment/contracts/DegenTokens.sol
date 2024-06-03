@@ -6,7 +6,13 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract DegenToken is ERC20, Ownable {
 
-    mapping(address => uint256) public playerItems;
+    struct InventoryItem {
+        string name;
+        uint256 amount;
+    }
+
+    mapping(address => mapping(uint256 => InventoryItem)) public playerItems;
+    mapping(address => uint256[]) public playerItemIds;
 
     struct ShopItem {
         string name;
@@ -29,7 +35,7 @@ contract DegenToken is ERC20, Ownable {
     }
 
     function transfer(address to, uint256 amount) public override returns (bool) {
-        _transfer(_msgSender(), to, amount * 10 ** decimals());
+        _transfer(_msgSender(), to, amount);
         return true;
     }
 
@@ -45,13 +51,29 @@ contract DegenToken is ERC20, Ownable {
     function redeem(uint256 itemId) external {
         require(itemId - 1< shop.length, "Invalid item ID");
         ShopItem storage item = shop[itemId - 1];
-        require(balanceOf(msg.sender) / 10 ** decimals() >= item.price, "Insufficient tokens");
+        require(balanceOf(msg.sender) >= item.price * 10 ** decimals(), "Insufficient tokens");
 
         _burn(msg.sender, item.price * 10 ** decimals());
-        playerItems[msg.sender] += 1; // Add 1 item to the player's inventory
+
+        InventoryItem storage inventoryItem = playerItems[msg.sender][itemId - 1];
+        if (bytes(inventoryItem.name).length == 0) {
+            inventoryItem.name = item.name;
+            playerItemIds[msg.sender].push(itemId - 1);
+        }
+        inventoryItem.amount += 1;
     }
 
     function shopItems() external view returns (ShopItem[] memory) {
         return shop;
+    }
+
+    function getPlayerInventory(address player) external view returns (InventoryItem[] memory) {
+        uint256[] storage itemIds = playerItemIds[player];
+        InventoryItem[] memory inventory = new InventoryItem[](itemIds.length);
+        for (uint256 i = 0; i < itemIds.length; i++) {
+            uint256 itemId = itemIds[i];
+            inventory[i] = playerItems[player][itemId];
+        }
+        return inventory;
     }
 }
