@@ -35,7 +35,7 @@ contract DegenToken is ERC20, Ownable {
     }
 
     function transfer(address to, uint256 amount) public override returns (bool) {
-        _transfer(_msgSender(), to, amount);
+        _transfer(_msgSender(), to, amount * 10 ** decimals());
         return true;
     }
 
