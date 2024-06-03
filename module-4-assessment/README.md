@@ -3,9 +3,9 @@
 Creating and deplying DegenToken on the Avax C-chain for Degen Gaming.
 
 ## The contract was verified on the Avalanche fuji (testnet) C-Chain
-![image](https://github.com/aanubhavv/Eth-Avax-proof-metacrafter/assets/117589083/f8f08af3-ccd0-4643-967b-f400d2254536)
+![image](https://github.com/aanubhavv/Eth-Avax-proof-metacrafter/assets/117589083/ac118720-7d50-4a81-bdce-ecfbdc8b91fb)
 
-[link to verification](https://testnet.snowtrace.io/address/0x1cA2C24Ff05E811e65c650308C29385607124e9E#code)
+[link to verification](https://testnet.snowtrace.io/address/0xBba74Bb36EddCc16d87eE1389c6f672207FF8076#code)
 
 ## Getting Started
 
